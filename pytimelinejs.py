@@ -1,6 +1,8 @@
 import __main__
-from os import path, startfile
+import os
+from os import path
 import json
+import platform
 
 
 class Pytimelinejs:
@@ -78,7 +80,18 @@ class Pytimelinejs:
         filename = path.splitext(path.basename(__main__.__file__))[0] + ".html"
         with open(filename, "w") as file:
             file.write(output)
-        startfile(path.abspath(filename))
+        # could be "linux", "linux2", "linux3", ...
+        if platform.system() ==  "linux":
+         # linux
+         os.system('xdg-open ' + filename)
+        elif platform.system() == "Darwin":
+            # MAC OS X
+            os.system('open ' + path.abspath(filename))
+        elif os.name == "nt":
+            # Windows, Cygwin, etc. (either 32-bit or 64-bit)
+            os.system('xdg-open ' + filename) 
+        
+                
 
 pytimelinejs = Pytimelinejs()
 
