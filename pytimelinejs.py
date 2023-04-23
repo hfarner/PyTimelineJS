@@ -96,13 +96,13 @@ class Pytimelinejs:
         # could be "linux", "linux2", "linux3", ...
         if platform.system() ==  "linux":
          # linux
-         os.system('xdg-open ' + filename)
+            os.system('xdg-open ' + filename)
         elif platform.system() == "Darwin":
             # MAC OS X
             os.system('open ' + path.abspath(filename))
         elif os.name == "nt":
             # Windows, Cygwin, etc. (either 32-bit or 64-bit)
-            os.system('xdg-open ' + filename) 
+            startfile(path.abspath(filename))
         
                 
 
