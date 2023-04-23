@@ -32,6 +32,7 @@ Définie le titre de la frise chronologique (ne devrait être appelée qu'une se
 ```python
 titre("Le Web")
 titre("Le Web", "Cette frise contient les dates présente dans le programme de SNT") # Il est possible d'ajouter une description
+titre("Le Web", "Cette frise contient les dates présente dans le programme de SNT","https://cds.cern.ch/images/CERN-GE-9407011-31/file?size=large") # Il est possible d'ajouter une url pour un media , gif, png mp4 https://timeline.knightlab.com/docs/media-types.html
 ```
 
 ### date
@@ -41,6 +42,8 @@ date("2002", "Première version de Firefox")
 date("2002", "Première version de Firefox", "Firefox s'appelait à l'époque Phoenix.") # Ajout d'une description
 date("09/2002", "Première version de Firefox") # Ajout du mois
 date("23/09/2002", "Première version de Firefox") # Ajout du mois et du jour
+date("23/09/2002", "Première version de Firefox","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Mozilla_Firefox_2004_Logo.png/1920px-Mozilla_Firefox_2004_Logo.png") # Ajout d'un média
+
 ```
 
 ### periode
@@ -50,6 +53,7 @@ periode("1995", "2022", "Internet explorer")
 periode("1995", "2022", "Internet explorer", "Internet Explorer est un ancien navigateur développé par Microsoft") # Ajout d'une description
 periode("08/1995", "12/2022", "Internet explorer") # Ajout du mois
 periode("16/08/1995", "13/12/2022", "Internet explorer") # Ajout du mois et du jour
+periode("1995", "2022"," Internet explorer","https://upload.wikimedia.org/wikipedia/commons/4/47/Internet_Explorer_2_logo.png") # Ajout d'un média
 ```
 
 ### generer
