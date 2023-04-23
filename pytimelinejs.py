@@ -10,7 +10,10 @@ class Pytimelinejs:
     def __init__(self):
         self.title = ""
         self.subtitle = ""
+        self.mediatitre = ""
         self.events = []
+
+
 
     def _parse_date(self, date):
         date = str(date).split("/")
@@ -23,26 +26,33 @@ class Pytimelinejs:
         else:
             raise ValueError("Date invalide")
 
-    def titre(self, titre, sous_titre=""):
+    def titre(self, titre, sous_titre="", media_titre=""):
         self.title = titre
         self.subtitle = sous_titre
+        self.mediatitre = media_titre
 
-    def date(self, date, titre, description=""):
+    def date(self, date, titre, description="", media_url=""):
         self.events.append({
             "start_date": self._parse_date(date),
             "text": {
                 "headline": titre,
                 "text": description
+            },
+            "media":{
+                "url": media_url
             }
         })
 
-    def periode(self, date_debut, date_fin, titre, description=""):
+    def periode(self, date_debut, date_fin, titre, description="", media_url=""):
         self.events.append({
             "start_date": self._parse_date(date_debut),
             "end_date": self._parse_date(date_fin),
             "text": {
                 "headline": titre,
                 "text": description
+            },
+            "media": {
+                "url": media_url
             }
         })
 
@@ -52,6 +62,9 @@ class Pytimelinejs:
                 "text": {
                     "headline": self.title,
                     "text": self.subtitle
+                },
+                "media": {
+                    "url": self.mediatitre
                 }
             },
             "events": self.events
